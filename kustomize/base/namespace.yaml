@@ -1,0 +1,11 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: datascience-project
+  labels:    
+    opendatahub.io/dashboard: 'true'
+    maistra.io/member-of: istio-system
+    modelmesh-enabled: 'false'
+    argocd.argoproj.io/managed-by: openshift-gitops
+  annotations:
+    openshift.io/display-name: datascience-project
