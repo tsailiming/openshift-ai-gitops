@@ -31,6 +31,7 @@ oc apply -f argocd/applicationset.yaml -n openshift-gitops
 
 This will create 2 datas science projects: user1 and user2 and each with a sample data connection.
 
+You will probably need to sync twice for the `Secret` to be created in the namespace. The namespace has the label `argocd.argoproj.io/managed-by: openshift-gitops`. This creates the role and rolebinding in the new namespace, which allows the Argo CD instance to access and manage resources in it.
 
 # Reference
 
