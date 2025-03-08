@@ -22,5 +22,18 @@ patches:
     - op: replace
       path: /subjects/0/name
       value: user2
+- target:
+      kind: Notebook
+      name: my-workbench
+  patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/readinessProbe/httpGet/path
+      value: /notebook/user2-datascience-project/my-workbench/api
+    - op: replace
+      path: /spec/template/spec/containers/0/livenessProbe/httpGet/path
+      value: /notebook/user2-datascience-project/my-workbench/api
+    - op: replace
+      path: /metadata/annotations/notebooks.opendatahub.io~1oauth-logout-url
+      value: 'https://rhods-dashboard-redhat-ods-applications.apps.ip9j6.sandbox323.opentlc.com/projects/user2-datascience-project?notebookLogout=my-workbench'
     
     

@@ -5,3 +5,5 @@ resources:
 - data-connection.yaml
 - namespace.yaml
 - rb.yaml
+- notebook.yaml
+- pvc.yaml
