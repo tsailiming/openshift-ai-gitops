@@ -25,3 +25,9 @@ spec:
       destination:
         server: '{{.url}}'
         namespace: '{{.user}}-datascience-project'
+      ignoreDifferences:
+          - group: kubeflow.org
+            kind: Notebook
+            jsonPointers:
+              - /metadata/generation
+              - /spec/template/spec/containers/1
