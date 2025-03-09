@@ -20,8 +20,21 @@ spec:
                 echo "Waiting for MinIO to be ready..."
                 sleep 5
             done
-            aws s3 mb s3://pipeline-storage
-            aws s3 mb s3://my-storage
+            
+            # Check if the bucket exists before creating it
+            if ! aws s3 ls s3://pipeline-storage; then
+              echo "Creating pipeline-storage bucket..."
+              aws s3 mb s3://pipeline-storage
+            else
+              echo "pipeline-storage bucket already exists."
+            fi
+            
+            if ! aws s3 ls s3://my-storage; then
+              echo "Creating my-storage bucket..."
+              aws s3 mb s3://my-storage
+            else
+              echo "my-storage bucket already exists."
+            fi
         envFrom: 
           - secretRef:
               name: aws-connection-my-storage
