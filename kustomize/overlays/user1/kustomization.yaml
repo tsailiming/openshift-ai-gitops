@@ -25,8 +25,8 @@ patches:
       path: /subjects/0/name
       value: user1
 - target:
-      kind: Notebook
-      name: my-workbench
+    kind: Notebook
+    name: my-workbench
   patch: |-
     - op: replace
       path: /spec/template/spec/containers/0/readinessProbe/httpGet/path
