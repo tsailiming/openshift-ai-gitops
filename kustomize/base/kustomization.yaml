@@ -7,3 +7,6 @@ resources:
 - rb.yaml
 - notebook.yaml
 - pvc.yaml
+- minio.yaml
+- setup-s3-bucket.yaml
+- dspa.yaml

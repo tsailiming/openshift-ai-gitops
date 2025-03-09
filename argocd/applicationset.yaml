@@ -31,3 +31,5 @@ spec:
             jsonPointers:
               - /metadata/generation
               - /spec/template/spec/containers/1
+      syncOptions:
+        - CreateNamespace=true

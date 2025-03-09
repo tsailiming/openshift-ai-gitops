@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: setup-s3-job  
+  annotations:
+    argocd.argoproj.io/hook: PostSync  # Runs after sync is complete
+    argocd.argoproj.io/sync-wave: "1"  # Ensures job runs after MinIO
+spec:
+  template:
+    metadata:
+      name: setup-s3-job
+    spec:
+      containers:
+      - name: setup-s3
+        image: docker.io/amazon/aws-cli:latest
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            until curl --silent --head --fail http://minio:9000/minio/health/live; do
+                echo "Waiting for MinIO to be ready..."
+                sleep 5
+            done
+            aws s3 mb s3://pipeline-storage
+            aws s3 mb s3://my-storage
+        envFrom: 
+          - secretRef:
+              name: aws-connection-my-storage
+      restartPolicy: Never    
+  backoffLimit: 4
