@@ -33,7 +33,7 @@ spec:
     externalStorage:
       basePath: ''
       bucket: pipeline-storage
-      host: minio-user1-datascience-project.apps.ip9j6.sandbox323.opentlc.com
+      host: hostname      
       port: ''
       region: us-east-1
       s3CredentialsSecret:

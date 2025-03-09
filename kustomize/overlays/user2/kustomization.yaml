@@ -35,5 +35,12 @@ patches:
     - op: replace
       path: /metadata/annotations/notebooks.opendatahub.io~1oauth-logout-url
       value: 'https://rhods-dashboard-redhat-ods-applications.apps.ip9j6.sandbox323.opentlc.com/projects/user2-datascience-project?notebookLogout=my-workbench'
-    
+- target:
+    version: datasciencepipelinesapplications.opendatahub.io/v1alpha1
+    kind: DataSciencePipelinesApplication
+    name: dspa
+  patch: |-
+    - op: replace
+      path: /spec/objectStorage/externalStorage/host
+      value: 'minio-user2-datascience-project.apps.ip9j6.sandbox323.opentlc.com'   
     
