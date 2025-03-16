@@ -8,8 +8,8 @@ metadata:
   annotations:
     opendatahub.io/connection-type: s3
     openshift.io/display-name: My Storage  
-    argocd.argoproj.io/hook: PostSync  # Runs after sync is complete
-    argocd.argoproj.io/sync-wave: "2"  # Ensures job runs after MinIO
+    argocd.argoproj.io/hook: PostSync  
+    argocd.argoproj.io/sync-wave: "1"  
 data:
   AWS_ACCESS_KEY_ID: bWluaW8=
   AWS_DEFAULT_REGION: dXMtZWFzdC0x

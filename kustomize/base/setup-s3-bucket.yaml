@@ -3,8 +3,8 @@ kind: Job
 metadata:
   name: setup-s3-job  
   annotations:
-    argocd.argoproj.io/hook: PostSync  # Runs after sync is complete
-    argocd.argoproj.io/sync-wave: "1"  # Ensures job runs after MinIO
+    argocd.argoproj.io/hook: PostSync  
+    argocd.argoproj.io/sync-wave: "2"  
 spec:
   template:
     metadata:
